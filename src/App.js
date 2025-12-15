@@ -1,55 +1,47 @@
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
+import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Certifications from "./components/Certifications";
-import Projects from "./components/Projects";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import MouseTrail from "./components/MouseTrail";
-import MouseGlow from "./components/MouseGlow";
 import Preloader from "./components/Preloader";
-import ParticlesBackground from "./components/ParticlesBackground";
 
-import AOS from "aos"; // ⬅️ Importo librarin
-import "aos/dist/aos.css"; // ⬅️ Importo stilin
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Sa zgjat animacioni në ms
-      once: true,     // Animacioni ndodh vetëm një herë
+      duration: 900,
+      once: true,
+      easing: "ease-out-cubic",
     });
 
-    const timer = setTimeout(() => setLoading(false), 2000);
+    const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) return <Preloader />;
 
-
-  
   return (
-    <div className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white font-sans transition-colors duration-500">
-      {/* Particle sfondi prapa gjithçkaje */}
-      <ParticlesBackground />
-
-      {/* Përmbajtja e faqes */}
+    <div className="relative bg-[#081C15] text-white font-sans transition-colors duration-500">
       <Navbar />
-      <Hero />
-      <Skills />
-      <Certifications />
-      <Projects />
-      <About />
-      <Contact />
-      <Footer />
 
-      {/* Efekte mouse */}
-      <MouseTrail />
-      <MouseGlow />
+      <main>
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Certifications />
+        <Contact />
+      </main>
+
+      <Footer />
     </div>
   );
 }

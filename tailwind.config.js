@@ -9,6 +9,14 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0px)", opacity: "0.15" },
+          "50%": { transform: "translateY(-18px)", opacity: "0.25" },
+        },
+        floatSlowAlt: {
+          "0%, 100%": { transform: "translateY(0px)", opacity: "0.15" },
+          "50%": { transform: "translateY(14px)", opacity: "0.25" },
+        },
         rotateY: {
           "0%, 100%": { transform: "rotateY(0deg)" },
           "50%": { transform: "rotateY(180deg)" },
@@ -28,6 +36,8 @@ module.exports = {
       },
       animation: {
         float: "float 4s ease-in-out infinite",
+        floatSlow: "floatSlow 18s ease-in-out infinite",
+        floatSlowAlt: "floatSlowAlt 22s ease-in-out infinite",
         rotateY: "rotateY 6s linear infinite",
         sway: "sway 5s ease-in-out infinite",
         "fade-in": "fadeIn 1s ease-in-out forwards",

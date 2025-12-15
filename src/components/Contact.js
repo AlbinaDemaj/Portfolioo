@@ -1,30 +1,68 @@
 import { FiMail } from "react-icons/fi";
+import { FiPhone } from "react-icons/fi";  // Importojmë iconën për telefonin
 
 const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative z-10 py-24 px-6 bg-gradient-to-b from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 text-center transition-colors duration-500"
+      className="py-40 px-6 bg-[#081C15] text-white"
     >
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-4xl font-bold text-blue-700 dark:text-purple-400 mb-6">
+      <div className="max-w-5xl mx-auto">
+
+        <p className="text-sm uppercase tracking-[0.3em] text-[#95D5B2] mb-10">
           Contact
+        </p>
+
+        <h2 className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl">
+          Interested in working together?
         </h2>
 
-        <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed mb-4">
-          I’m open to exciting new opportunities, collaborations, freelance work, or simply connecting with professionals in the tech community.
-        </p>
-        <p className="text-gray-600 dark:text-gray-300 mb-8">
-          Feel free to reach out — I’d love to hear from you!
+        <p className="mt-8 text-white/70 text-lg max-w-3xl leading-relaxed">
+          I’m currently open to full-time roles, internships, and freelance projects.
+          If you have an idea, a position, or simply want to start a conversation,
+          feel free to reach out.
         </p>
 
-        <a
-          href="mailto:demajalbina3@gmail.com"
-          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-md hover:scale-105 transition duration-300"
-        >
-          <FiMail className="text-lg" />
-          demajalbina3@gmail.com
-        </a>
+        {/* EMAIL */}
+        <div className="mt-20">
+          <a
+            href="mailto:demajalbina3@gmail.com"
+            className="
+              group inline-flex items-center gap-4
+              text-2xl md:text-3xl font-medium
+              text-[#52B788]
+            "
+          >
+            <FiMail className="opacity-70 group-hover:opacity-100 transition" />
+            <span className="relative">
+              demajalbina3@gmail.com
+              <span
+                className="absolute left-0 -bottom-2 h-[2px] w-0 bg-[#52B788] transition-all duration-300 group-hover:w-full"
+              />
+            </span>
+          </a>
+        </div>
+
+        {/* PHONE NUMBER */}
+        <div className="mt-8">
+          <a
+            href="tel:+38349119008"
+            className="
+              group inline-flex items-center gap-4
+              text-2xl md:text-3xl font-medium
+              text-[#52B788]
+            "
+          >
+            <FiPhone className="opacity-70 group-hover:opacity-100 transition" />
+            <span className="relative">
+              +383 49 119 008
+              <span
+                className="absolute left-0 -bottom-2 h-[2px] w-0 bg-[#52B788] transition-all duration-300 group-hover:w-full"
+              />
+            </span>
+          </a>
+        </div>
+
       </div>
     </section>
   );

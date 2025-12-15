@@ -1,92 +1,116 @@
-import { useState } from "react";
-import Marquee from "react-fast-marquee";
-
 const Certifications = () => {
-  const [selectedCert, setSelectedCert] = useState(null); // për modal
-
-  const certs = [
-    { title: "Agile Basics & Scrum Foundations", img: "/certificates/cert1.jpeg" },
-    { title: "Cyber Security – ARRA Academy", img: "/certificates/cert2.png" },
-    { title: "UI/UX Design with Figma", img: "/certificates/cert3.png" },
-    { title: "HTML5, CSS3 & Web Hosting", img: "/certificates/cert4.png" },
-    { title: " Full Stack Developer Certificate", img: "/certificates/cert5.jpg" },
+  const achievements = [
+    {
+      title: "Bachelor in Computer Science – Software Design",
+      provider: "University Degree",
+      note: "Strong foundation in programming, software engineering principles, databases, and system design.",
+    },
+    {
+      title: "Master’s Degree in Computer Science (In Progress)",
+      provider: "Graduate Studies",
+      note: "Advanced studies focused on modern computing concepts, research, and real-world problem solving.",
+    },
+    {
+      title: "Full Stack Web Development",
+      provider: "Professional Training Program",
+      note: "Comprehensive training covering frontend, backend, and database-driven web applications.",
+    },
+    {
+      title: "Agile Basics & Scrum Foundations",
+      provider: "Agile Training",
+      note: "Practical understanding of agile methodologies, teamwork, and iterative development.",
+    },
+    {
+      title: "Cyber Security Fundamentals",
+      provider: "ARRA Academy",
+      note: "Core concepts of web security, threats, and best practices for protecting applications.",
+    },
+    {
+      title: "UI/UX Design with Figma",
+      provider: "Design Training",
+      note: "User-centered design principles, wireframing, prototyping, and usability thinking.",
+    },
+    {
+      title: "HTML5, CSS3 & Web Hosting",
+      provider: "Web Technologies",
+      note: "Solid foundation in web standards, responsive layouts, and basic deployment workflows.",
+    },
   ];
 
   return (
     <section
       id="certifications"
-      className="py-24 px-6 bg-gradient-to-b from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-500"
+      className="relative py-28 px-6 bg-[#081C15] text-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
-        {/* Left Text */}
-        <div className="lg:w-1/3 text-center lg:text-left">
-          <h2 className="text-4xl font-bold text-blue-700 dark:text-purple-400 mb-6">
-            Certifications
+      {/* background glow */}
+      <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[520px] bg-[#52B788]/10 blur-3xl rounded-full" />
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+
+        {/* TITLE */}
+        <div className="text-center mb-20">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#95D5B2] mb-4">
+            Achievements
+          </p>
+          <h2 className="text-4xl font-bold mb-6">
+            Education & Professional Growth
           </h2>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
-            During my journey as a Full Stack Developer, I’ve completed several certifications
-            that enhance my technical and creative skills. These programs have helped me grow
-            in areas like Agile development, UI/UX design, web security, and more.
-          </p>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm">
-            I continuously seek learning opportunities to stay up-to-date with the latest tools
-            and practices in tech.
+          <p className="text-white/60 max-w-2xl mx-auto">
+            My academic background and professional training reflect a continuous
+            commitment to growth, learning, and building reliable software solutions.
           </p>
         </div>
 
-        {/* Right Slider */}
-        <div className="lg:w-2/3 w-full">
-          <Marquee gradient={false} speed={35} pauseOnHover>
-            <div className="flex gap-10">
-              {certs.map((cert, index) => (
-                <div
-                  key={index}
-                  onClick={() => setSelectedCert(cert)}
-                  className={`relative w-64 h-80 rounded-2xl overflow-hidden border border-blue-100 dark:border-gray-700 bg-white/80 dark:bg-gray-800/60 backdrop-blur-md shadow-xl group cursor-pointer transform hover:scale-105 transition-all duration-300 ${
-                    index === certs.length - 1 ? "mr-10" : ""
-                  }`}
-                >
-                  <img
-                    src={cert.img}
-                    alt={cert.title}
-                    className="w-full h-full object-cover group-hover:brightness-75 transition duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4">
-                    <span className="text-white text-sm font-medium">
-                      {cert.title}
-                    </span>
-                  </div>
-                </div>
-              ))}
+        {/* MILESTONE TIMELINE */}
+        <div className="relative border-l border-white/10 ml-4">
+          {achievements.map((item, index) => (
+            <div key={index} className="relative pl-12 pb-16 group">
+
+              {/* number */}
+              <div
+                className="
+                  absolute -left-5 top-1
+                  w-10 h-10 rounded-full
+                  bg-[#1B4332]
+                  border border-[#52B788]/40
+                  flex items-center justify-center
+                  text-sm font-semibold text-[#52B788]
+                  group-hover:scale-110 transition
+                "
+              >
+                {String(index + 1).padStart(2, "0")}
+              </div>
+
+              {/* content */}
+              <div
+                className="
+                  p-6 rounded-2xl
+                  bg-[#1B4332]/85
+                  border border-white/10
+                  transition-all duration-300
+                  hover:-translate-y-1
+                  hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)]
+                "
+              >
+                <h3 className="text-lg font-semibold mb-1">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-[#95D5B2] mb-3">
+                  {item.provider}
+                </p>
+
+                <p className="text-sm text-white/60 leading-relaxed">
+                  {item.note}
+                </p>
+
+                <div className="mt-4 h-[2px] w-0 bg-[#52B788] transition-all duration-300 group-hover:w-full" />
+              </div>
             </div>
-          </Marquee>
+          ))}
         </div>
-      </div>
 
-      {/* Modal certifikate */}
-      {selectedCert && (
-        <div
-          className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center backdrop-blur-sm"
-          onClick={() => setSelectedCert(null)}
-        >
-          <div className="bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-xl max-w-2xl w-full mx-4 p-4 relative">
-            <img
-              src={selectedCert.img}
-              alt={selectedCert.title}
-              className="w-full h-auto rounded"
-            />
-            <p className="text-center text-gray-700 dark:text-gray-200 mt-3 text-sm font-medium">
-              {selectedCert.title}
-            </p>
-            <button
-              onClick={() => setSelectedCert(null)}
-              className="absolute top-2 right-3 text-gray-400 hover:text-red-500 text-xl font-bold"
-            >
-              ×
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
     </section>
   );
 };

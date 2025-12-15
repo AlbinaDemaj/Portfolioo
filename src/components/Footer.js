@@ -1,13 +1,32 @@
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 text-center py-6 border-t border-blue-100 dark:border-gray-700 transition-colors duration-500">
-      <p className="text-sm text-gray-500 dark:text-gray-400">
-        © {new Date().getFullYear()}{" "}
-        <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
-          Albina
-        </span>
-        . All rights reserved.
-      </p>
+    <footer className="bg-[#081C15] border-t border-white/10 py-8">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-white/60 text-sm">
+
+        <p>
+          © {new Date().getFullYear()} Albina Demaj. All rights reserved.
+        </p>
+
+        <div className="flex gap-6 mt-4 md:mt-0">
+          <a
+            href="https://github.com/albinademaj"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#52B788] transition"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/albina-demaj-881293300/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#52B788] transition"
+          >
+            LinkedIn
+          </a>
+        </div>
+
+      </div>
     </footer>
   );
 };

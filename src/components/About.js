@@ -1,74 +1,106 @@
-import Marquee from "react-fast-marquee";
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaReact,
-  FaPhp,
-  FaWordpress,
-} from "react-icons/fa";
-import {
-  SiTailwindcss,
-  SiBootstrap,
-  SiLaravel,
-  SiMysql,
-  SiJquery,
-  SiFigma,
-  SiCanva,
-} from "react-icons/si";
-
 const About = () => {
-  const skills = [
-    { icon: <FaHtml5 className="text-orange-600" />, name: "HTML" },
-    { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS" },
-    { icon: <FaJs className="text-yellow-400" />, name: "JavaScript" },
-    { icon: <FaReact className="text-cyan-400" />, name: "React" },
-    { icon: <SiTailwindcss className="text-teal-400" />, name: "Tailwind" },
-    { icon: <SiBootstrap className="text-purple-600" />, name: "Bootstrap" },
-    { icon: <FaPhp className="text-indigo-700" />, name: "PHP" },
-    { icon: <SiLaravel className="text-red-500" />, name: "Laravel" },
-    { icon: <SiMysql className="text-blue-800" />, name: "MySQL" },
-    { icon: <SiJquery className="text-blue-400" />, name: "jQuery" },
-    { icon: <SiFigma className="text-pink-500" />, name: "Figma" },
-  ];
-
   return (
     <section
       id="about"
-      className="py-24 px-6 bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 text-center transition-colors duration-500"
+      className="relative py-28 px-6 bg-[#081C15] text-white overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl font-bold mb-4 text-blue-700 dark:text-purple-400">About Me</h2>
+      {/* subtle background glow */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#52B788]/10 rounded-full blur-3xl" />
 
-        <p className="text-gray-700 dark:text-gray-200 text-lg leading-relaxed mb-4">
-          I’m a dedicated <span className="font-semibold text-blue-600 dark:text-purple-400">Full Stack Developer</span> with a strong passion for crafting modern,
-          clean, and user-focused web applications.
-        </p>
-        <p className="text-gray-600 dark:text-gray-300 text-base mb-10">
-          With a Bachelor’s degree in Computer Science, I specialize in both frontend and backend development.
-          I enjoy working with teams and solving real-world problems using technology.
-        </p>
+      <div className="relative z-10 max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
 
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-6">Tech Stack I Work With</h3>
+        {/* LEFT — TEXT */}
+        <div data-aos="fade-right">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#95D5B2] mb-4">
+            About Me
+          </p>
 
-        <Marquee gradient={false} speed={50} pauseOnHover>
-          <div className="flex gap-10 items-center text-4xl">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center justify-center gap-1 hover:scale-110 transition duration-300"
-              >
-                {skill.icon}
-                <span className="text-sm text-gray-600 dark:text-gray-300">{skill.name}</span>
-              </div>
-            ))}
+          <h2 className="text-4xl font-bold mb-6 leading-tight">
+            Building digital products<br />
+            with purpose & precision.
+          </h2>
+
+          {/* accent line */}
+          <div className="w-20 h-[3px] bg-[#52B788] rounded-full mb-6" />
+
+          <p className="text-white/70 leading-relaxed mb-6">
+            I’m a Full-Stack Web Developer and Computer Science Master’s student,
+            specialized in building modern, scalable web applications.
+            My work focuses on combining clean user interfaces with solid backend
+            architecture to deliver reliable real-world solutions.
+          </p>
+
+          <p className="text-white/60 leading-relaxed">
+            I have a strong foundation in frontend and backend development,
+            experience working on collaborative projects, and a constant drive
+            to improve code quality, performance, and user experience.
+          </p>
+        </div>
+
+        {/* RIGHT — PROFESSIONAL SNAPSHOT */}
+        <div
+          className="relative pl-8 border-l border-white/10 space-y-10"
+          data-aos="fade-left"
+        >
+          {/* Item */}
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-1">
+              Experience
+            </p>
+            <p className="text-3xl font-bold text-[#52B788]">
+              3+ Projects
+            </p>
+            <p className="text-sm text-white/60 mt-2 max-w-xs">
+              Real-world applications developed from concept to deployment.
+            </p>
           </div>
-        </Marquee>
+
+          <div className="h-px w-12 bg-white/10" />
+
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-1">
+              Role
+            </p>
+            <p className="text-3xl font-bold text-[#52B788]">
+              Full-Stack Developer
+            </p>
+            <p className="text-sm text-white/60 mt-2 max-w-xs">
+              Frontend and backend development with a strong architectural mindset.
+            </p>
+          </div>
+
+          <div className="h-px w-12 bg-white/10" />
+
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-1">
+              Education
+            </p>
+            <p className="text-3xl font-bold text-[#52B788]">
+              Master’s Degree
+            </p>
+            <p className="text-sm text-white/60 mt-2 max-w-xs">
+              Computer Science — advanced academic and practical training.
+            </p>
+          </div>
+
+          <div className="h-px w-12 bg-white/10" />
+
+          <div>
+            <p className="text-xs uppercase tracking-widest text-white/40 mb-1">
+              Focus
+            </p>
+            <p className="text-3xl font-bold text-[#52B788]">
+              Clean Code
+            </p>
+            <p className="text-sm text-white/60 mt-2 max-w-xs">
+              Maintainable, scalable, and performance-driven solutions.
+            </p>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default About;
-
-

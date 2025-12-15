@@ -1,25 +1,101 @@
-import DarkModeToggle from "./DarkModeToggle";
+import { useState, useEffect } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
-const Navbar = () => {
+export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState("");
+
+  const links = [
+    { name: "About", href: "#about" },
+    { name: "Projects", href: "#projects" },
+    { name: "Certifications", href: "#certifications" },
+    { name: "Contact", href: "#contact" },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      links.forEach(link => {
+        const section = document.querySelector(link.href);
+        if (!section) return;
+
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) {
+          setActive(link.href);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow z-50">
-      <div className="max-w-6xl mx-auto px-6 h-[64px] flex items-center relative">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-[#081C15]/80 backdrop-blur-md border-b border-white/10">
+      <div className="relative max-w-7xl mx-auto px-6 h-[72px] flex items-center">
 
-        {/* LINKET NË QENDËR */}
-        <ul className="absolute left-1/2 -translate-x-1/2 flex gap-8 text-sm font-medium text-gray-700 dark:text-gray-300">
-          <li><a href="#about" className="hover:text-blue-500 transition">About</a></li>
-          <li><a href="#projects" className="hover:text-blue-500 transition">Projects</a></li>
-          <li><a href="#certifications" className="hover:text-blue-500 transition">Certifications</a></li>
-          <li><a href="#contact" className="hover:text-blue-500 transition">Contact</a></li>
+        {/* BRAND — LEFT */}
+        <span className="text-white font-semibold text-lg tracking-wide">
+          Albina<span className="text-[#52B788]">.</span>
+        </span>
+
+        {/* DESKTOP MENU — CENTER */}
+        <ul
+          className="
+            hidden md:flex items-center gap-10
+            text-sm font-medium
+            absolute left-1/2 -translate-x-1/2
+          "
+        >
+          {links.map(link => (
+            <li key={link.name}>
+              <a
+                href={link.href}
+                className={`
+                  relative transition
+                  ${active === link.href
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"}
+                `}
+              >
+                {link.name}
+                <span
+                  className={`
+                    absolute left-0 -bottom-2 h-[2px] bg-[#52B788] transition-all
+                    ${active === link.href ? "w-full" : "w-0"}
+                  `}
+                />
+              </a>
+            </li>
+          ))}
         </ul>
 
-        {/* DARK MODE NË ANË TË DJATHTË */}
-        <div className="ml-auto">
-          <DarkModeToggle />
-        </div>
+        {/* MOBILE BUTTON — RIGHT */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="ml-auto md:hidden text-white text-2xl"
+        >
+          {isOpen ? <FiX /> : <FiMenu />}
+        </button>
       </div>
+
+      {/* MOBILE MENU */}
+      {isOpen && (
+        <div className="md:hidden px-6 pb-6 bg-[#081C15]/95">
+          <ul className="flex flex-col gap-5 mt-4 text-sm font-medium text-white/80">
+            {links.map(link => (
+              <li key={link.name}>
+                <a
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="hover:text-[#52B788] transition"
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
-};
-
-export default Navbar;
+}

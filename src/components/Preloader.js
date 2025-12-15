@@ -1,17 +1,21 @@
 const Preloader = () => {
-    return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white dark:bg-gray-900 z-[9999] transition-opacity duration-500">
-        <div className="text-center animate-fade-in">
-          <div className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-2 animate-pulse tracking-wide">
-            Loading...
-          </div>
-          <div className="relative inline-block text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 animate-gradient-x">
-            ALBINA
-          </div>
+  return (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-[#081C15]">
+      <div className="text-center animate-fade-in">
+
+        {/* Brand name */}
+        <h1 className="text-4xl font-bold tracking-wide text-white mb-2">
+          Albina<span className="text-[#52B788]">.</span>
+        </h1>
+
+        {/* Subtle loader */}
+        <div className="mt-4 flex justify-center">
+          <span className="block h-1 w-12 bg-[#52B788] rounded-full animate-pulse"></span>
         </div>
+
       </div>
-    );
-  };
-  
-  export default Preloader;
-  
+    </div>
+  );
+};
+
+export default Preloader;
